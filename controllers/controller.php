@@ -16,8 +16,11 @@ class IndexController
     {
         if(isset($_POST['date']))
         {
-            echo $_POST['date'];
             $price = new Price($connection, $_POST['date']);
+            $resultArr = $price->getPrices();
+            $view = new Output();
+            $view->outputRender($resultArr);
+            unset($_POST['date']);
         }
     }
 }

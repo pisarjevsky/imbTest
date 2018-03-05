@@ -14,8 +14,25 @@ class Output
 
     public function outputRender($infoArr)
     {
-        foreach ($infoArr as $price) {
-
+        $result = '<table style="border: 1px solid black; text-align: center">
+   <tr>
+    <th>Наименование</th>
+    <th>Описание</th>
+    <th>Номер документа</th>
+    <th>Дата документа</th>
+    <th>Цена</th>
+   </tr>';
+        foreach ($infoArr as $info) {
+            $result .= '<tr>
+<td>' . $info['Наименование'] . '</td>
+<td>' . $info['Описание'] . '</td>
+<td>' . $info['Номер документа'] . '</td>
+<td>' . $info['Дата документа'] . '</td>
+<td>' . $info['Цена'] . '</td>
+</tr>';
         }
+        $result .= '</table>';
+
+        echo $result;
     }
 }
